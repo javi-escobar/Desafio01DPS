@@ -1,0 +1,31 @@
+h1 {
+  margin: 0;
+}
+.formulario {
+  width: 50%;
+}
+.proyectos {
+  width: 50%;
+}
+.imgEli {
+  width: 25px;
+  height: 25px;
+  display: block;
+  margin-left: auto;
+}
+.cardProyecto {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.eleProyect {
+  column-count: 2;
+  column-gap: 20px;
+  width: 100%; 
+  padding: 8px; 
+  box-sizing: border-box;
+}
+.bold {
+  font-weight: bold;
+}
