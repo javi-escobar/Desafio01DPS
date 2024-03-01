@@ -12,6 +12,7 @@ h1 {
   height: 25px;
   display: block;
   margin-left: auto;
+  cursor: pointer;
 }
 .cardProyecto {
   border: 1px solid black;

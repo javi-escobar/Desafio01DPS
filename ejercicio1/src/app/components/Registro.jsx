@@ -16,12 +16,13 @@ const Registro = () => {
 
   const handleTipoProyectoChange = (event) => {
     setTipoProyecto(event.target.value);
+    setCategoria("");
   };
 
   const handleCategoriaChange = (event) => {
     const catSelec = event.target.value;
     setCategoria(catSelec);
-    if (catSelec !== "personalizada") {
+    if (catSelec !== "Personalizada") {
       setCatPersonalizada("");
     }
   };
@@ -67,7 +68,7 @@ const Registro = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const catSel = categoria === "personalizada" ? catPersonalizada : categoria;
+    const catSel = categoria === "Personalizada" ? catPersonalizada : categoria;
     const proyecto = {
       tipoProyecto: tipoProyecto,
       catSel: catSel,
@@ -124,39 +125,40 @@ const Registro = () => {
             <div className="input-group">
               <label className="form-label">
                 Categoría:
-                {tipoProyecto === "ambiental" ? (
-                  <select
-                    className="form-control"
-                    value={categoria}
-                    onChange={handleCategoriaChange}
-                  >
-                    <option value="alimentacion">Alimentación</option>
-                    <option value="transporte">Transporte</option>
-                    <option value="vivienda">Vivienda</option>
-                    <option value="personalizada">Personalizada</option>
-                  </select>
-                ) : (
-                  <select
-                    className="form-control"
-                    value={categoria}
-                    onChange={handleCategoriaChange}
-                  >
-                    <option value="desarrollo_software">
-                      Desarrollo de Software
-                    </option>
-                    <option value="campana_marketing">
-                      Campaña de Marketing
-                    </option>
-                    <option value="construccion_infraestructura">
-                      Construcción de Infraestructura
-                    </option>
-                    <option value="servicios_financieros">
-                      Servicios Financieros
-                    </option>
-                    <option value="personalizada">Personalizada</option>
-                  </select>
-                )}
-                {categoria === "personalizada" && (
+                <select
+                  className="form-control"
+                  value={categoria}
+                  onChange={handleCategoriaChange}
+                >
+                  <option value="" disabled hidden>
+                    Seleccione una categoría
+                  </option>
+                  {tipoProyecto === "ambiental" ? (
+                    <>
+                      <option value="Alimentacion">Alimentación</option>
+                      <option value="Transporte">Transporte</option>
+                      <option value="Vivienda">Vivienda</option>
+                      <option value="Personalizada">Personalizada</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="Desarrollo de Software">
+                        Desarrollo de Software
+                      </option>
+                      <option value="Campaña de Marketing">
+                        Campaña de Marketing
+                      </option>
+                      <option value="Construcción de Infraestructura">
+                        Construcción de Infraestructura
+                      </option>
+                      <option value="Servicios Financieros">
+                        Servicios Financieros
+                      </option>
+                      <option value="Personalizada">Personalizada</option>
+                    </>
+                  )}
+                </select>
+                {categoria === "Personalizada" && (
                   <input
                     type="text"
                     value={catPersonalizada}
